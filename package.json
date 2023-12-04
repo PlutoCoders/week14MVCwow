@@ -4,7 +4,9 @@
   "description": "Model-View-Controller (MVC) Challenge: Tech Blog",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "note": "This is a comment: We are creating 'start' to run our application",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
