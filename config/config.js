@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+// We use dotenv to secure our sensitive databse info
 require('dotenv').config();
 
 let sequelize;
@@ -17,5 +18,4 @@ if (process.env.JAWSDB_URL) {
     }
   );
 }
-
 module.exports = sequelize;

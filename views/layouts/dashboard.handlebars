@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog of Tech</title>
+  {{!-- Remember to link the css file here after its set up --}}
+  <link rel="stylesheet" href="">
 </head>
 <body>
-  
+    {{> header}}
+  <main>
+    {{{body}}}
+  </main>
+  <footer>
+    <a href="/dashboard/new">➕ New Post</a>
+  </footer>
 </body>
-{{!-- Link any js here --}}
+<script src="/js/logic.js"></script>
+<script src="/js/logout.js"></script>
 </html>
