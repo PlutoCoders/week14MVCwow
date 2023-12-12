@@ -6,6 +6,6 @@ const withAuth = (req, res, next) => {
       next();
     }
   };
-  
+   // export the variable so that we can use it elsewhere
   module.exports = withAuth;
   

@@ -5,8 +5,11 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 
 // These are our routes, which connect to other files (local imports): Make sure these files exist
+// we wont worry about api routes for now so we can comment this out
+// const routes = require('./controllers');
+
+// Commented out because we don't need a whole different file for one little helper file (we can insert this date formatter in code somewhere else)
 const helpers = require('./utils/helpers');
-const routes = require('./controllers');
 
 const app = express();
 // allows us to run server more cleanly (cors: Cross-Origin Resource Sharing)
@@ -35,6 +38,8 @@ const sess = {
 app.use(session(sess));
 
 // Set up Handlebars.js engine with custom helpers
+// we aren't using the helpers file atm
+// const hbs = exphbs.create();
 const hbs = exphbs.create({ helpers });
 
 // Inform Express.js on which template engine to use
