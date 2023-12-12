@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  {{!-- We will have to link a style sheet later to style all of our html elements --}}
+  <link rel="stylesheet" href="">
+</head>
+
+<body>
+  {{> header}}
+
+  <main>
+    {{{body}}}
+  </main>
+
+  <footer>
+   {{title}}
+   {{{year}}}
+  </footer>
+</body>
+
+</html>
+
+{{!-- Connect your js here --}}
+<script src="/js/logic.js"></script>
