@@ -1,0 +1,28 @@
+{{!-- Checking if the posts variable exists --}}
+{{#if posts}}
+{{!-- Setting up the element which will contain all the posts --}}
+<div class="posts">
+  {{!-- loops through each element in the posts array --}}
+  {{#each posts}}
+  <div class="article">
+    <div class="article-header">
+      <h2>
+        {{!-- Where we display the title of the post --}}
+        <a href="/post/{{id}}">{{title}}</a>
+        {{!-- Note that this is different than just adding {{title}} because we are also adding a hyperlink which will take the user to the specific post page --}}
+      </h2>
+      <div>
+        {{User.username}} created this on {{format_date createdAt}}
+      </div>
+    </div>
+    <div class="article-body">
+      {{!-- Where we display the content of the post --}}
+      {{body}}
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{else}}
+{{!-- Rendered if there are no posts to be displayed --}}
+No Posts
+{{/if}}

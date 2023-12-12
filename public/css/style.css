@@ -1,6 +1,6 @@
 footer {
     padding-bottom: 25px;
-  }
+  };
 
   .btn {
     padding: 5px 5px;
@@ -9,4 +9,30 @@ footer {
     margin: 3px 0;
     border: solid;
     border-color: black;
-  }
+  };
+
+  /* some styling setup for the post article cards */
+  .posts {
+    margin-top: 20px;
+  };
+  .article {
+    background-color: #f1f1f1;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  };
+  .article-header {
+    margin-bottom: 10px;
+  };
+  .article-header h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  };
+  .article-header div {
+    font-size: 14px;
+    color: #888;
+  };
+  .article-body {
+    font-size: 16px;
+    line-height: 1.5;
+  };
