@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Is there a way to make this code more dry, since this same data to render is called multiple times throughout the code?
+    // This is an object, and it contains properties that are essential for providing info to render info/make a request/passing data
     let dataToRender = {
       year: new Date().getFullYear(),
       userId: req.session.userId,
@@ -30,7 +31,9 @@ router.get('/', async (req, res) => {
 // get single post
 router.get('/post/:id', async (req, res) => {
   try {
+    // Here we are searching for a post by the primary key
     const postData = await Post.findByPk(req.params.id, {
+      // Along with the post data, we also want to retrieve information about the user who posted said coment
       include: [
         User,
         {

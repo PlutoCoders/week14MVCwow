@@ -1,13 +1,15 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// Post request for adding a new user
 router.post('/', async (req, res) => {
   try {
+    // Creating the new user in the database base on what was provided as input
     const newUser = await User.create({
       username: req.body.username,
       password: req.body.password,
     });
-
+  // Saves the user data in our db
     req.session.save(() => {
       req.session.userId = newUser.id;
       req.session.username = newUser.username;
@@ -20,19 +22,21 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Handle login attempts
 router.post('/login', async (req, res) => {
   try {
+    // Looking for the username in the database based on what was provided in the body input
     const user = await User.findOne({
       where: {
         username: req.body.username,
       },
     });
-
+    // If we can't find a match
     if (!user) {
       res.status(400).json({ message: 'Cant find user account' });
       return;
     }
-
+    // Creating the variable that contains the correct password that is stored in the db. This is what we will compare the input password to
     const validPassword = user.checkPassword(req.body.password);
 
       // This is what happens when the password in invalid (throw error)
