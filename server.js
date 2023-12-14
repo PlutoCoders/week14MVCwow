@@ -15,7 +15,7 @@ const app = express();
 // allows us to run server more cleanly (cors: Cross-Origin Resource Sharing)
 // http vs https; makes sure you are on the same server to share resources, as server might be on http, but client might be on https
 app.use(cors());
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 const sequelize = require('./config/config');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
