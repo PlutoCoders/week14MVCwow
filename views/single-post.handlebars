@@ -1,0 +1,32 @@
+<div class="blog-post">
+  <article class="post-card">
+    <div class="post-header">
+      <h1>{{post.title}}</h1>
+      <div class="author-info">
+        <p>By {{post.User.username}} on {{format_date post.createdAt}}</p>
+      </div>
+    </div>
+    <div class="post-content">
+      <p>{{post.body}}</p>
+    </div>
+  </article>
+
+  {{#if post.Comments}}
+    <section class="comments-section">
+      <div class="comments-header">
+        <h2>Comments</h2>
+      </div>
+
+      <div class="comments-body">
+        {{#each post.Comments}}
+          <div class="comment">
+            <p>{{body}}</p>
+            <p class="comment-details">&mdash; {{User.username}}, {{format_date createdAt}}</p>
+          </div>
+        {{/each}}
+      </div>
+    </section>
+  {{/if}}
+</div>
+
+<script src="../public/js/custom-comment.js"></script>
