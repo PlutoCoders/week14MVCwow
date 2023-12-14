@@ -33,6 +33,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+// withAuth to conditionally render if the user fetching has the authorization/permission to
 router.get('/new', withAuth, (req, res) => {
   let dataToRender = {
     title: `New Post`,
@@ -40,6 +41,7 @@ router.get('/new', withAuth, (req, res) => {
     userId: req.session.userId, 
     path: req.route.path,
   }
+  // Rendering the new post based on the information from the object dataToRender
   res.render('new-post', {
     layout: 'dashboard',
     ...dataToRender
