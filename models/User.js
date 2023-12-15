@@ -43,5 +43,5 @@ User.init(
   }
 );
 
-// You should know by now what this is and why
+// Exporting the user structure above to be used elsewhere
 module.exports = User;

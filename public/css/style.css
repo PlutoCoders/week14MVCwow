@@ -1,15 +1,21 @@
+body {
+  background-color: rgb(9, 170, 170);
+}
+
 footer {
     padding-bottom: 25px;
+    display: flex;
+    justify-content: center;
   };
 
-  .btn {
+  /* .btn {
     padding: 5px 5px;
     width: 100%;
     display: block;
     margin: 3px 0;
     border: solid;
     border-color: black;
-  };
+  }; */
 
   /* some styling setup for the post article cards */
   .posts {
@@ -36,3 +42,98 @@ footer {
     font-size: 16px;
     line-height: 1.5;
   };
+
+  /* login handlebars styling */
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .card-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  #login-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  input {
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /* Hyperlink */
+  a {
+    color: #007bff;
+    margin-top: 10px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+  }
+
+  /* Navbar styling */
+  .navbar {
+    background-color: #f0f0f0;
+    padding: 10px;
+  }
+  
+  .navbar ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar li {
+    margin-right: 10px;
+  }
+  
+  .navbar li:last-child {
+    margin-right: 0;
+  }
+  
+  .navbar li a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+  }
+  
+  .navbar li a:hover {
+    background-color: #ccc;
+  }
+  
+  header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  header h1 a {
+    text-decoration: none;
+    color: #333;
+  }
