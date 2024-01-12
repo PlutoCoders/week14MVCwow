@@ -20,8 +20,8 @@ router.get('/', async (req, res) => {
     // }
 
     res.render('homePage', { 
-      // posts,
-      // logged_in: req.session.loggedIn,
+      posts,
+      logged_in: req.session.loggedIn,
       
       // ...dataToRender
     });
@@ -87,14 +87,14 @@ router.get('/signup', (req, res) => {
     return;
   }
 
-  let dataToRender = {
-    year: new Date().getFullYear(),
-    userId: req.session.userId,
-    path: req.route.path,
-    title: `Blog of Tech`,
-  }
+  // let dataToRender = {
+  //   year: new Date().getFullYear(),
+  //   userId: req.session.userId,
+  //   path: req.route.path,
+  //   title: `Blog of Tech`,
+  // }
 
-  res.render('signup', dataToRender);
+  res.render('signup');
 });
 
 module.exports = router;
