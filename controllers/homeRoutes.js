@@ -12,18 +12,21 @@ router.get('/', async (req, res) => {
 
     // Is there a way to make this code more dry, since this same data to render is called multiple times throughout the code?
     // This is an object, and it contains properties that are essential for providing info to render info/make a request/passing data
-    let dataToRender = {
-      year: new Date().getFullYear(),
-      userId: req.session.userId,
-      path: req.route.path,
-      title: `Blog of Tech`,
-    }
+    // let dataToRender = {
+    //   year: new Date().getFullYear(),
+    //   userId: req.session.userId,
+    //   path: req.route.path,
+    //   title: `Blog of Tech`,
+    // }
 
-    res.render('all-posts', { 
-      posts,
-      ...dataToRender
+    res.render('homePage', { 
+      // posts,
+      // logged_in: req.session.loggedIn,
+      
+      // ...dataToRender
     });
   } catch (err) {
+    console.log(`error`, err.message)
     res.status(500).json(err);
   }
 });

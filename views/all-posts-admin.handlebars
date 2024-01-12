@@ -1,8 +1,9 @@
 <div class="posts list-group">
   {{#each posts}}
-    <a class="list-item" href="/dashboard/edit/{{id}}">
+    <a class="list-item" href="/post/{{id}}">
       <span>{{title}}</span>
       <span>{{format_date createdAt}}</span>
     </a>
+    {{body}}
   {{/each}}
 </div>

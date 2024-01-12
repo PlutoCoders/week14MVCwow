@@ -23,7 +23,3 @@ module.exports = {
   Post,
   Comment
 };
-
-// remember to export it just as we export User
-
-module.exports = User;

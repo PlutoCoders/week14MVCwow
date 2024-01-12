@@ -1,6 +1,6 @@
 // This is the backend implementation for handling the post data by defining the structure of a Post and managing its interactions with the database.
 const { Sequelize, Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/config');
+const sequelize = require('../config/connection');
 
 class Post extends Model {}
 
