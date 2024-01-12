@@ -4,7 +4,7 @@ const loginFormHandler = async function(event) {
 
   const usernameElement = document.querySelector('#username-login');
   const passwordElement = document.querySelector('#password-login');
-  // console.log(usernameElement.value);
+  // console.log(usernameElement.value, passwordElement.value);
   const response = await fetch('/api/user/login', {
     method: 'POST',
     // When saving data, we have to stringify it to store it
@@ -12,6 +12,7 @@ const loginFormHandler = async function(event) {
       username: usernameElement.value,
       password: passwordElement.value,
     }),
+    headers: { 'Content-Type': 'application/json' },
   });
 
   if (response.ok) {
