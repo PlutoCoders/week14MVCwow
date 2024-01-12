@@ -17,10 +17,10 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 300000,
-    httpOnly: true,
-    secure: false,
-    sameSite: 'strict',
+    // maxAge: 300000,
+    // httpOnly: true,
+    // secure: false,
+    // sameSite: 'strict',
   },
   resave: false,
   saveUninitialized: true,
@@ -40,7 +40,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
-
+// Change force from false to true to temporarily drop your database
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

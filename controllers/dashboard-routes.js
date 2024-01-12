@@ -15,21 +15,23 @@ router.get('/', withAuth, async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Setting up the object containing data which we will then use in res.render (to render)
-    let dataToRender = {
-      title: `Dashboard`,
-      year: new Date().getFullYear(), 
-      userId: req.session.userId, 
-      path: req.route.path,
-    }
+    // let dataToRender = {
+    //   title: `Dashboard`,
+    //   year: new Date().getFullYear(), 
+    //   userId: req.session.userId, 
+    //   path: req.route.path,
+    // }
     
     // rendering here using the layout: dashboard
     res.render('all-posts-admin', {
-      layout: 'dashboard',
+      // layout: 'dashboard',
       posts,
-      ...dataToRender
+      // This has to go o nall the rotues so the nav knows whether to render the logged in navigation or the logged in button based on if the user is logged in or not
+      logged_in: req.session.loggedIn
+      // ...dataToRender
     });
   } catch (err) {
-    res.redirect('login');
+    res.status(500).json(err.message);
   }
 });
 

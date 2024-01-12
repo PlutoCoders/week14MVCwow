@@ -4,7 +4,7 @@ const loginFormHandler = async function(event) {
 
   const usernameElement = document.querySelector('#username-login');
   const passwordElement = document.querySelector('#password-login');
-
+  // console.log(usernameElement.value);
   const response = await fetch('/api/user/login', {
     method: 'POST',
     // When saving data, we have to stringify it to store it
@@ -17,9 +17,8 @@ const loginFormHandler = async function(event) {
   if (response.ok) {
     document.location.replace('/dashboard');
   } else {
-    showAlert(`Login Fail!`);
+    alert(`Login Fail!`);
   }
 };
 
-let loginform = document.querySelector('#login-form');
-if (loginform) loginform.addEventListener('submit', loginFormHandler);
+document.querySelector('#log-form').addEventListener('submit', loginFormHandler);

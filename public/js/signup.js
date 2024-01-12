@@ -16,7 +16,8 @@ const signupFormHandler = async function(event) {
   if (response.ok) {
     document.location.replace('/dashboard');
   } else {
-    showAlert(`You were not able to signup!`);
+    alert(`You were not able to signup!`);
+    console.log(`Response Status Text`, response.statusText);
   }
 };
 

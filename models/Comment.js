@@ -13,7 +13,9 @@ Comment.init(
     }
   },
   {
-    sequelize
+    sequelize,
+     // need this otherwise inflection happens, we want to work with un inflected tables
+    freezeTableName: true,
   }
 );
 

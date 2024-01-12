@@ -18,6 +18,7 @@ router.post('/', async (req, res) => {
       res.json(newUser);
     });
   } catch (err) {
+    console.log(err.message);
     res.status(500).json(err);
   }
 });
@@ -25,6 +26,7 @@ router.post('/', async (req, res) => {
 // Handle login attempts
 router.post('/login', async (req, res) => {
   try {
+    console.log(req.body.username);
     // Looking for the username in the database based on what was provided in the body input
     const user = await User.findOne({
       where: {
@@ -53,6 +55,7 @@ router.post('/login', async (req, res) => {
       res.json({ user, message: 'Logged In!' });
     });
   } catch (err) {
+    console.log(err.message);
     res.status(400).json({ message: 'Cant find user account' });
   }
 });

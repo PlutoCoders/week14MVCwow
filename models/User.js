@@ -26,11 +26,12 @@ User.init(
     },
     password: {
       type: DataTypes.STRING,
+      allowNull: false,
       // We want to validate so that the user has to type in more than 1 character, in this case we will check to see that they have atleast 3
-      validate: {
-        length:[3],
-        allowNull: false,
-      },
+      // Big bug was here, can use the allowNull for validate curly braces, nor the length. Have to use len instead of length.
+      // validate: {
+      //   len:[3],
+      // },
     },
   },
   {
@@ -38,6 +39,8 @@ User.init(
     sequelize,
     // So that we can have underscored naming
     underscored: true,
+    // 
+    freezeTableName: true,
     // The name of our specific model
     modelName: 'User',
   }
