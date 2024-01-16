@@ -1,12 +1,21 @@
-body {
-  background-color: rgb(9, 170, 170);
-}
+  body {
+    background-color: rgb(7, 112, 168);
+  }
 
-footer {
-    padding-bottom: 25px;
+  footer {
+    padding: 25px;
     display: flex;
     justify-content: center;
-  };
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    font-style: italic;
+    font-weight: bolder;
+  }
+
+  header.display-flex.justify-space-between.align-center.p-2 {
+    background-color: #69a9ff;
+  }
 
   /* .btn {
     padding: 5px 5px;
@@ -17,16 +26,37 @@ footer {
     border-color: black;
   }; */
 
+  a {
+    font-size: larger;
+    font-weight: bold;
+  }
+
+  p {
+    font-weight: bold;
+  }
+
   /* some styling setup for the post article cards */
   .posts {
     margin-top: 20px;
-  };
+    background-color: #ffffff66;
+    border-style: solid;
+    padding: 20px;
+  }
+
   .article {
     background-color: #f1f1f1;
     padding: 20px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
-  };
+    border: 5px solid black;
+  }
+
+  .article-body {
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+    font-weight: bold;
+}
+
   .article-header {
     margin-bottom: 10px;
   };
@@ -137,3 +167,12 @@ footer {
     text-decoration: none;
     color: #333;
   }
+
+  /* For the posts section */
+  .posts.list-group {
+    min-height: 400px;
+    background-color: white;
+    padding-top: 11px;
+    border: black;
+    border-style: solid;
+}
