@@ -23,33 +23,32 @@ router.get('/', withAuth, async (req, res) => {
     // }
     
     // rendering here using the layout: dashboard
-    res.render('all-posts-admin', {
+    res.render('dashboard', {
       // layout: 'dashboard',
       posts,
       // This has to go o nall the rotues so the nav knows whether to render the logged in navigation or the logged in button based on if the user is logged in or not
       logged_in: req.session.loggedIn
       // ...dataToRender
     });
-  } catch (err) {
-    res.status(500).json(err.message);
+  } catch (error) {
+    res.status(500).json(error.message);
   }
 });
 
-// withAuth to conditionally render if the user fetching has the authorization/permission to
-router.get('/new', withAuth, (req, res) => {
-  let dataToRender = {
-    title: `New Post`,
-    year: new Date().getFullYear(), 
-    userId: req.session.userId, 
-    path: req.route.path,
+router.get('/edit/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id);
+    // Strips all the seq off everything
+    const post = postData.get({plain:true})
+    res.render('edit', {
+      ...post,
+      // These pages all go through main, and it makes sure that the user is logged in
+      logged_in: req.session.loggedIn
+    });
+  } catch (error) {
+    res.status(500).json(error.message);
   }
-  // Rendering the new post based on the information from the object dataToRender
-  res.render('new-post', {
-    layout: 'dashboard',
-    ...dataToRender
-  });
 });
 
-// to do: handling editing
 
 module.exports = router;

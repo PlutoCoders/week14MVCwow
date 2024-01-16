@@ -6,8 +6,8 @@ const newFormHandler = async function(event) {
   event.preventDefault();
 
    // dom manipulation to grab the specific text we need (that the user is filling out in the form)
-  const title = document.querySelector('input[name="post-title"]').value;
-  const body = document.querySelector('textarea[name="post-body"]').value;
+  const title = document.querySelector('#project-name').value;
+  const body = document.querySelector('#project-desc').value;
   // Sending data from the form via post request
   await fetch(`/api/post`, {
     method: 'POST',
@@ -19,9 +19,9 @@ const newFormHandler = async function(event) {
     headers: { 'Content-Type': 'application/json' },
   });
   // Redircting the user to another page to see the updated info (the new post)
-  document.location.replace('/dashboard');
+  document.location.reload();
 };
 
 document
-  .querySelector('#post-form')
+  .querySelector('.new-project-form')
   .addEventListener('submit', newFormHandler);

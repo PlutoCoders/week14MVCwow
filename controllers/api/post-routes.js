@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { Post } = require('../../models/');
-const withAuth = require('../../utils/auth');
+
 // The Post Route
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   const body = req.body;
 
   try {
@@ -14,7 +14,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // Setup Put Route
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const [affectedRows] = await Post.update(req.body, {
       where: {
@@ -23,7 +23,8 @@ router.put('/:id', withAuth, async (req, res) => {
     });
 
     if (affectedRows > 0) {
-      res.status(200).end();
+      // Puts and deletes can use 204
+      res.status(204).end();
     } else {
       res.status(404).end();
     }
@@ -33,5 +34,16 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 // Setup delete Route
+router.delete('/:id', async (req, res) => {
+  try {
+   await Post.destroy({where:{id:req.params.id}});
+  //  We want to keep our network traffic down as low as we can
+  // graphQL is for keeping network traffic down
+  // For posts and puts, you don't have to send anything
+    res.status(204).end()
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
