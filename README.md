@@ -17,7 +17,7 @@ In this assignment we are setting up a website where users can login, create pos
 
 ## Links
 - Repo Link: https://github.com/PlutoCoders/week14MVCwow
-- Deployment Link: here
+- Deployment Link: https://my-tech-blog-hw-aa9238865df4.herokuapp.com/
 
 ## Credits
 - I worked on this assignment with my brother Furk and my tutor Rakib
